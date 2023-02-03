@@ -24,9 +24,7 @@ body {
     border: 0.1px solid rgba(0, 0, 0, 0.062);
     padding: 0.5em;
     background-color: #689091;
-    width: 100%;
-  
-
+    align-self: center;
 }
 
 .flex{
@@ -38,7 +36,13 @@ body {
     align-items: center;
 }
 
+.game{
+
+    margin: 0px 50px;
+}
+
 .red{
+
     background-color: #5d8283;
     border: solid #d63644 30px;
     border-bottom: solid #e63946 100px;
@@ -102,7 +106,7 @@ button {
 
   .slider {
     appearance: none;
-    width: 80%;
+    width: 90%;
     height: 25px;
     background: #d3d3d3;
     outline: none;
