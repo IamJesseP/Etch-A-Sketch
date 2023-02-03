@@ -1,9 +1,13 @@
 .row {
     display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
 }
 
 .column {
     flex: 1;
+    border: 1px solid black;
+    padding: 1rem 0;
+}
+
+.fill {
+    background-color: black;
 }
