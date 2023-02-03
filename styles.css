@@ -2,7 +2,7 @@ body {
     margin: auto;
     padding: 20px;
     background-color: #f1faee;
-    font-family: 'Rubik 80s Fade', cursive;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .title{
@@ -100,4 +100,30 @@ button {
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
 
+  .slider {
+    appearance: none;
+    width: 80%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
   
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: black;
+    cursor: pointer;
+  }
+
+  .slidercontent{
+    flex-direction: column;
+  }
