@@ -1,17 +1,5 @@
-
-function removes(){
-    red.classList.remove('animation');
-    
-}
-
-function clearSketch(){
-    for (let i = 0; i < boxListen.length; i++){
-        boxListen[i].classList.remove('fill');
-    }
-}
-
 function initializeSketch(){
-    for (let i=1; i < 16; i++){
+    for (let i=1; i < 30; i++){
         const row = document.createElement("div");
         row.id = "row" + i;
         row.classList.add("row")
@@ -25,24 +13,43 @@ function initializeSketch(){
         }
     }
 }
+
+//clears shake animation
+function removeShake(){
+    red.classList.remove('animation');
+    
+}
+
+function clearSketch(){
+ boxListen.forEach((box) =>{
+    const eachBox = box;
+    eachBox.style.backgroundColor = '#689091';
+    eachBox.style.opacity = '1';
+    eachBox.count = 0;
+ })
+}
+
 const container = document.querySelector(".container");
+
 initializeSketch();
 
 const red = document.querySelector(".red")
 const boxListen = document.querySelectorAll('.column');
+const shake = document.querySelector(".shakebttn");
 
 
-for (let i = 0; i < boxListen.length; i++){
-    boxListen[i].addEventListener("mouseover", function(){
-        boxListen[i].classList.add(`fill`);
+boxListen.forEach((box) => {
+    const eachBox = box;
+    eachBox.count = 0;
+    eachBox.addEventListener('mouseenter', (e) =>{
+        e.target.style.backgroundColor = '#1d1d1d';
+        e.target.count += 1;
+        e.target.style.opacity = 0.33 * e.target.count;
+
     })
-}
-
-const shake = document.querySelector(".shake");
-
-shake.addEventListener("click", ()=>{
-    red.classList.add('animation');
-    setTimeout(clearSketch, 700)
-    setTimeout(removes, 1000)
+    shake.addEventListener("click", (e)=>{
+        red.classList.add('animation');
+        setTimeout(clearSketch, 700)
+        setTimeout(removeShake, 800)
+    })
 })
-

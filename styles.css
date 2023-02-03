@@ -1,18 +1,17 @@
 body {
     margin: auto;
     padding: 20px;
-    background-color: rgb(233, 232, 230);
+    background-color: #f1faee;
     font-family: 'Rubik 80s Fade', cursive;
 }
 
 .title{
     font-size: 60px;
-    color: #251e3b;
+    color: #1d3557;
 }
 
 .container{
     margin: 0;
-
 }
 
 .row {
@@ -23,13 +22,15 @@ body {
 .column {
     flex: 1;
     border: 0.2px solid rgba(0, 0, 0, 0.61);
-    padding: 1rem 0;
-    background-color: rgb(104, 144, 145);
+    padding: 0.5em;
+    background-color: #689091;
+    width: 100%;
+  
 
 }
 
 .fill {
-    background-color: rgba(0, 0, 0, 0.808);
+    background-color: #1d1d1d;
 }
 
 .flex{
@@ -42,29 +43,45 @@ body {
 }
 
 .red{
-    width: 700px;
-    height: 500px;
-    border: solid #b83838 30px;
-    border-bottom: solid #da4040 100px;
+    border: solid #d63644 30px;
+    border-bottom: solid #e63946 100px;
 }
 
-.shake {
-    margin: 40px;
-    width:200px;
-    height: 50px;
-    font-size: 30px;
-    font-family: 'Rubik 80s Fade', cursive;
-    background-color: white;
-    border-radius: 3px;
+button{
+    --c:  #229091; /* the color*/
+       
+    box-shadow: 0 0 0 .1em inset var(--c); 
+    --_g: linear-gradient(var(--c) 0 0) no-repeat;
+    background: 
+         var(--_g) calc(var(--_p,0%) - 100%) 0%,
+         var(--_g) calc(200% - var(--_p,0%)) 0%,
+         var(--_g) calc(var(--_p,0%) - 100%) 100%,
+         var(--_g) calc(200% - var(--_p,0%)) 100%;
+    background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+    outline-offset: .1em;
+    transition: background-size .4s, background-position 0s .4s;
+    margin: 20px;
+   }
+    
+button:active {
+    box-shadow: 0 0 9e9q inset #0009; 
+    background-color: var(--c);
+    color: #fff;
+}
+button:hover {
+    --_p: 100%;
+    transition: background-position .4s, background-size 0s;
 }
 
-.shake:hover {
-    animation: shake 0.3s;
-
-    /* When the animation is finished, start again */
-    animation: iteration count 1px;;
+button {
+    font-family: system-ui, sans-serif;
+    font-size: 3.5rem;
+    cursor: pointer;
+    padding: .1em .6em;
+    font-weight: bold;  
+    border: none;
   }
-  
+
 .animation {
       animation: shake 0.8s;
       /* When the animation is finished, start again */
