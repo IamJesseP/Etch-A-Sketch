@@ -7,7 +7,7 @@ body {
 
 .title{
     font-size: 60px;
-    color: #1d3557;
+    color: black;
 }
 
 .container{
@@ -21,7 +21,7 @@ body {
 
 .column {
     flex: 1;
-    border: 0.2px solid rgba(0, 0, 0, 0.61);
+    border: 0.1px solid rgba(0, 0, 0, 0.062);
     padding: 0.5em;
     background-color: #689091;
     width: 100%;
@@ -39,8 +39,10 @@ body {
 }
 
 .red{
+    background-color: #5d8283;
     border: solid #d63644 30px;
     border-bottom: solid #e63946 100px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 /*Source: https://codepen.io/t_afif/pen/abKyJNJ */

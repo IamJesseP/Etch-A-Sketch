@@ -1,11 +1,11 @@
 function initializeSketch(){
-    for (let i=1; i < 32; i++){
+    for (let i=1; i < 30; i++){
         const row = document.createElement("div");
         row.id = "row" + i;
         row.classList.add("row")
         container.appendChild(row);
         
-        for (let j=1; j < 32; j++){
+        for (let j=1; j < 50; j++){
             const column = document.createElement("div");
             column.id= "column" + j;
             column.classList.add("column");
@@ -44,7 +44,7 @@ function paintMode(e) {
     if (selectMode == 'Shader') {
         e.target.style.backgroundColor = '#1d1d1d';
         e.target.count += 1;
-        e.target.style.opacity = 0.33 * e.target.count;
+        e.target.style.opacity = 0.15 * e.target.count;
     }
     else {
         e.target.style.backgroundColor = '#1d1d1d';
@@ -53,24 +53,24 @@ function paintMode(e) {
 }
 
 
-
 const container = document.querySelector(".container");
 
 initializeSketch();
 
 const red = document.querySelector(".red")
+
 const boxListen = document.querySelectorAll('.column');
 
-let selectMode = 'Classic'
+
 let mode  = document.querySelector('.mode');
+let selectMode = 'Classic'
 mode.textContent = `Style: ${selectMode}`
+
+const shake = document.querySelector(".shakebttn");
 
 mode.addEventListener('click', ()=>{
     changeMode();
 })
-
-
-const shake = document.querySelector(".shakebttn");
 
 
 boxListen.forEach((box) => {
@@ -80,7 +80,6 @@ boxListen.forEach((box) => {
     eachBox.addEventListener('mouseenter', (e) =>{
         paintMode(e);
     }) 
-
     shake.addEventListener("click", (e)=>{
         red.classList.add('animation');
         setTimeout(clearSketch, 400)
