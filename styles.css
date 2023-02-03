@@ -29,10 +29,6 @@ body {
 
 }
 
-.fill {
-    background-color: #1d1d1d;
-}
-
 .flex{
     display: flex;
 }
@@ -47,9 +43,9 @@ body {
     border-bottom: solid #e63946 100px;
 }
 
+/*Source: https://codepen.io/t_afif/pen/abKyJNJ */
 button{
-    --c:  #229091; /* the color*/
-       
+    --c:  #229091; 
     box-shadow: 0 0 0 .1em inset var(--c); 
     --_g: linear-gradient(var(--c) 0 0) no-repeat;
     background: 
@@ -81,10 +77,10 @@ button {
     font-weight: bold;  
     border: none;
   }
+/*Source: https://codepen.io/t_afif/pen/abKyJNJ */
 
 .animation {
-      animation: shake 0.8s;
-      /* When the animation is finished, start again */
+      animation: shake 0.4s;
       animation-iteration-count:1;
     }
 
