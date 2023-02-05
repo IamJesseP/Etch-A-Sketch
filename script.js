@@ -19,14 +19,14 @@ function removeShake(){
     
 }
 
+
 function clearSketch(){
- boxListen.forEach((box) =>{
-    const eachBox = box;
-    eachBox.style.backgroundColor = '#689091';
-    eachBox.style.opacity = '1';
-    eachBox.count = 0;
- })
-}
+    for (let i=0; i < boxListen.length; i++){
+        boxListen[i].style.backgroundColor='#689091';
+        boxListen[i].style.opacity = '1';
+        boxListen[i].count = 0;
+    }
+    }
 
 function changeMode() {
     if (selectMode == 'Classic') {
@@ -81,8 +81,8 @@ boxListen.forEach((box) => {
     }) 
     shake.addEventListener("click", (e)=>{
         red.classList.add('animation');
-        setTimeout(clearSketch, 400)
-        setTimeout(removeShake, 1000)
+        setTimeout(clearSketch, 1)
+        setTimeout(removeShake, 800)
     })
 })
 

@@ -13,22 +13,24 @@
     <title>Etch-A-Sketch🖍️</title>
 </head>
 <body>
-    <span class="flex center title"><p>Etch-A-Sketch🖍️</p></span>
+    <div class="flex center">
+
+        <span class="title"><p>Etch-A-Sketch🖍️</p></span>
+    </div>
     <div class="flex center game">
-        
             <div class="red">
                 <div class="container"></div>
             </div>
-    
     </div>
 
+<div class="flex center options">
     <div class="flex center">
         <button class="shakebttn">Shake!</button>
-        <button class="mode" style="--c:orange;">Style:</button>=
+        <button class="mode">Style:</button>
     </div>
 
     <div class="flex center slidercontent">
-        <label for="size" class="title flex center">Size</label>
+        <label for="size" class="flex center" style="font-size: 25px;">Grid Size</label>
         <input type="range" class="slider" min="1" value="1" max="3" step="1" list="size">
         <datalist id="size">
             <option>1</option>
@@ -36,6 +38,6 @@
             <option>3</option>
         </datalist>
     </div>
-
+</div>
 </body>
 </html>
