@@ -1,16 +1,23 @@
-function initializeSketch(){
-    for (let i=1; i < 40; i++){
+function initializeSketch(gridSize){
+    for (let i=0; i < gridSize; i++){
         const row = document.createElement("div");
         row.id = "row" + i;
         row.classList.add("row")
         container.appendChild(row);
         
-        for (let j=1; j < 40; j++){
+        for (let j=0; j < gridSize; j++){
             const column = document.createElement("div");
             column.id= "column" + j;
             column.classList.add("column");
             row.appendChild(column);
         }
+    }
+    
+}
+function deleteSketch(gridSize){
+    for (let i=1; i < gridSize; i++){
+        row.remove();
+        column.remove();
     }
 }
 
@@ -51,26 +58,29 @@ function paintMode(e) {
     }
 }
 
-
+// Initialization and documents
 const container = document.querySelector(".container");
 
-initializeSketch();
+var gridSize = 16;
 
+initializeSketch(gridSize);
+var boxListen = document.querySelectorAll('.column');
 const red = document.querySelector(".red")
-
-const boxListen = document.querySelectorAll('.column');
-
 
 let mode  = document.querySelector('.mode');
 let selectMode = 'Classic'
 mode.textContent = `Style: ${selectMode}`
 
 const shake = document.querySelector(".shakebttn");
+var rangeInput = document.querySelector("#slider");
 
+
+
+//Event Listeners
 mode.addEventListener('click', ()=>{
     changeMode();
+    
 })
-
 
 boxListen.forEach((box) => {
     const eachBox = box;
@@ -85,5 +95,26 @@ boxListen.forEach((box) => {
         setTimeout(removeShake, 800)
     })
 })
+
+
+rangeInput.addEventListener("mouseup", ()=>{
+    initializeSketch(gridSize);
+    boxListen = document.querySelectorAll('.column');
+    boxListen.forEach((box) => {
+        const eachBox = box;
+        eachBox.count = 0;
+    
+        eachBox.addEventListener('mouseenter', (e) =>{
+            paintMode(e);
+        }) 
+        shake.addEventListener("click", (e)=>{
+            red.classList.add('animation');
+            setTimeout(clearSketch, 1)
+            setTimeout(removeShake, 800)
+        })
+    })
+
+})
+
 
 
