@@ -1,4 +1,6 @@
+
 function initializeSketch(gridSize){
+    let container = document.querySelector(".container");
     for (let i=0; i < gridSize; i++){
         const row = document.createElement("div");
         row.id = "row" + i;
@@ -12,13 +14,11 @@ function initializeSketch(gridSize){
             row.appendChild(column);
         }
     }
-    
+    boxListen = document.querySelectorAll('.column');
 }
-function deleteSketch(gridSize){
-    for (let i=1; i < gridSize; i++){
-        row.remove();
-        column.remove();
-    }
+function deleteSketch(){
+    let sketchPixels = container.querySelectorAll('.row');
+    sketchPixels.forEach(sketchPixel => sketchPixel.remove());
 }
 
 function removeShake(){
@@ -58,25 +58,66 @@ function paintMode(e) {
     }
 }
 
-// Initialization and documents
-const container = document.querySelector(".container");
+// Initialization and DOM capture
+let container = document.querySelector(".container");
 
 var gridSize = 16;
 
-initializeSketch(gridSize);
 var boxListen = document.querySelectorAll('.column');
+
 const red = document.querySelector(".red")
 
 let mode  = document.querySelector('.mode');
+
 let selectMode = 'Classic'
+
 mode.textContent = `Style: ${selectMode}`
 
 const shake = document.querySelector(".shakebttn");
-var rangeInput = document.querySelector("#slider");
 
+let gridAmount = document.querySelector(".gridamount");
 
+initializeSketch(gridSize);
 
 //Event Listeners
+gridAmount.addEventListener('click', ()=>{
+    if (gridAmount.textContent == "Grid Size: 16"){
+        deleteSketch(gridSize);
+        gridAmount.textContent = "Grid Size: 32";
+        gridSize = 32;
+        initializeSketch(gridSize);
+    }
+    else if (gridAmount.textContent == "Grid Size: 32"){
+        deleteSketch(gridSize);
+        gridAmount.textContent = "Grid Size: 48";
+        gridSize = 48;
+        initializeSketch(gridSize);
+    }
+    else {
+        deleteSketch(gridSize);
+        gridAmount.textContent = "Grid Size: 16";
+        gridSize = 16;
+        initializeSketch(gridSize);
+    }
+
+        var boxListen = document.querySelectorAll('.column');
+        boxListen.forEach((box) => {
+            const eachBox = box;
+            eachBox.count = 0;
+        
+            eachBox.addEventListener('mouseenter', (e) =>{
+                paintMode(e);
+            }) 
+            shake.addEventListener("click", (e)=>{
+                red.classList.add('animation');
+                setTimeout(clearSketch, 1)
+                setTimeout(removeShake, 800)
+            })
+        })
+        
+    }
+)
+
 mode.addEventListener('click', ()=>{
     changeMode();
     
@@ -95,26 +136,5 @@ boxListen.forEach((box) => {
         setTimeout(removeShake, 800)
     })
 })
-
-
-rangeInput.addEventListener("mouseup", ()=>{
-    initializeSketch(gridSize);
-    boxListen = document.querySelectorAll('.column');
-    boxListen.forEach((box) => {
-        const eachBox = box;
-        eachBox.count = 0;
-    
-        eachBox.addEventListener('mouseenter', (e) =>{
-            paintMode(e);
-        }) 
-        shake.addEventListener("click", (e)=>{
-            red.classList.add('animation');
-            setTimeout(clearSketch, 1)
-            setTimeout(removeShake, 800)
-        })
-    })
-
-})
-
 
 
