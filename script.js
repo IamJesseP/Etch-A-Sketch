@@ -21,13 +21,33 @@ function deleteSketch(){
     sketchPixels.forEach(sketchPixel => sketchPixel.remove());
 }
 
-function removeShake(){
+function removeAnimation(){
     red.classList.remove('animation');
     
 }
 
+function changeGrid() {
+    if (gridAmount.textContent == "Grid Size: 16") {
+        deleteSketch(gridSize);
+        gridAmount.textContent = "Grid Size: 32";
+        gridSize = 32;
+        initializeSketch(gridSize);
+    }
+    else if (gridAmount.textContent == "Grid Size: 32") {
+        deleteSketch(gridSize);
+        gridAmount.textContent = "Grid Size: 48";
+        gridSize = 48;
+        initializeSketch(gridSize);
+    }
+    else {
+        deleteSketch(gridSize);
+        gridAmount.textContent = "Grid Size: 16";
+        gridSize = 16;
+        initializeSketch(gridSize);
+    }
+}
 
-function clearSketch(){
+function clearPaint(){
     for (let i=0; i < boxListen.length; i++){
         boxListen[i].style.backgroundColor='#689091';
         boxListen[i].style.opacity = '1';
@@ -81,46 +101,26 @@ initializeSketch(gridSize);
 
 //Event Listeners
 gridAmount.addEventListener('click', ()=>{
-    if (gridAmount.textContent == "Grid Size: 16"){
-        deleteSketch(gridSize);
-        gridAmount.textContent = "Grid Size: 32";
-        gridSize = 32;
-        initializeSketch(gridSize);
-    }
-    else if (gridAmount.textContent == "Grid Size: 32"){
-        deleteSketch(gridSize);
-        gridAmount.textContent = "Grid Size: 48";
-        gridSize = 48;
-        initializeSketch(gridSize);
-    }
-    else {
-        deleteSketch(gridSize);
-        gridAmount.textContent = "Grid Size: 16";
-        gridSize = 16;
-        initializeSketch(gridSize);
-    }
+    changeGrid();
 
-        var boxListen = document.querySelectorAll('.column');
-        boxListen.forEach((box) => {
-            const eachBox = box;
-            eachBox.count = 0;
-        
-            eachBox.addEventListener('mouseenter', (e) =>{
-                paintMode(e);
-            }) 
-            shake.addEventListener("click", (e)=>{
-                red.classList.add('animation');
-                setTimeout(clearSketch, 1)
-                setTimeout(removeShake, 800)
-            })
+    var boxListen = document.querySelectorAll('.column');
+    boxListen.forEach((box) => {
+        const eachBox = box;
+        eachBox.count = 0;
+    
+        eachBox.addEventListener('mouseenter', (e) =>{
+            paintMode(e);
+        }) 
+        shake.addEventListener("click", (e)=>{
+            red.classList.add('animation');
+            setTimeout(clearPaint, 1);
+            setTimeout(removeAnimation, 800);
         })
-        
-    }
-)
+    })
+})
 
 mode.addEventListener('click', ()=>{
     changeMode();
-    
 })
 
 boxListen.forEach((box) => {
@@ -132,9 +132,7 @@ boxListen.forEach((box) => {
     }) 
     shake.addEventListener("click", (e)=>{
         red.classList.add('animation');
-        setTimeout(clearSketch, 1)
-        setTimeout(removeShake, 800)
+        setTimeout(clearPaint, 1)
+        setTimeout(removeAnimation, 800)
     })
 })
-
-
