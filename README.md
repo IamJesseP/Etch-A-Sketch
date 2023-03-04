@@ -24,5 +24,5 @@ A live preview of my project is [here](https://iamjessep.github.io/EtchSketch/)
 
 * Solidifed **Javascript concepts**, such as DOM manipulation and event listeners
 * Improved **functionality** concepts (optimized and reusable functions)
-* Improved use of **HTML5, CSS3 grid/flex
-* Improved code structure and readability
+* Improved use of **HTML5, CSS3 grid/flex**
+* Improved understanding code structure and readability
