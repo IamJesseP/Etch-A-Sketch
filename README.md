@@ -1,4 +1,4 @@
-# Etch-a-Sketch
+# Etch-A-Sketch
 Created as part of [The Odin Project](https://www.theodinproject.com/about) Cirriculum
 
 A live preview of my project is [here](https://iamjessep.github.io/EtchSketch/)
