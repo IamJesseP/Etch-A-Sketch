@@ -1,7 +1,7 @@
 # Etch-A-Sketch
 Created as part of [The Odin Project](https://www.theodinproject.com/about) Cirriculum
 
-A live preview of my project is [here](https://iamjessep.github.io/EtchSketch/)
+A live preview of my project is [here](https://iamjessep.github.io/Etch-A-Sketch/)
 
 ### Technologies
 * HTML
